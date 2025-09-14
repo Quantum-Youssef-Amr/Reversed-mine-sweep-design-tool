@@ -1,0 +1,3 @@
+D:\Projects\Unity Projects\Reversed mine sweep design tool\Library\Bee\Android\Prj\Mono2x\Gradle\unityLibrary\src\main\cpp\CMakeLists.txt
+D:\Projects\Unity Projects\Reversed mine sweep design tool\Library\Bee\Android\Prj\Mono2x\Gradle\unityLibrary\src\main\cpp\FramePacing\CMakeLists.txt
+D:\Projects\Unity Projects\Reversed mine sweep design tool\Library\Bee\Android\Prj\Mono2x\Gradle\unityLibrary\src\main\cpp\GameActivity\CMakeLists.txt

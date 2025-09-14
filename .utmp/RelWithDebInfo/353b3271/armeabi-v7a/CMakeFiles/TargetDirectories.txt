@@ -1,0 +1,8 @@
+D:/Projects/Unity Projects/Reversed mine sweep design tool/.utmp/RelWithDebInfo/353b3271/armeabi-v7a/CMakeFiles/edit_cache.dir
+D:/Projects/Unity Projects/Reversed mine sweep design tool/.utmp/RelWithDebInfo/353b3271/armeabi-v7a/CMakeFiles/rebuild_cache.dir
+D:/Projects/Unity Projects/Reversed mine sweep design tool/.utmp/RelWithDebInfo/353b3271/armeabi-v7a/GameActivity/CMakeFiles/game.dir
+D:/Projects/Unity Projects/Reversed mine sweep design tool/.utmp/RelWithDebInfo/353b3271/armeabi-v7a/GameActivity/CMakeFiles/edit_cache.dir
+D:/Projects/Unity Projects/Reversed mine sweep design tool/.utmp/RelWithDebInfo/353b3271/armeabi-v7a/GameActivity/CMakeFiles/rebuild_cache.dir
+D:/Projects/Unity Projects/Reversed mine sweep design tool/.utmp/RelWithDebInfo/353b3271/armeabi-v7a/FramePacing/CMakeFiles/swappywrapper.dir
+D:/Projects/Unity Projects/Reversed mine sweep design tool/.utmp/RelWithDebInfo/353b3271/armeabi-v7a/FramePacing/CMakeFiles/edit_cache.dir
+D:/Projects/Unity Projects/Reversed mine sweep design tool/.utmp/RelWithDebInfo/353b3271/armeabi-v7a/FramePacing/CMakeFiles/rebuild_cache.dir

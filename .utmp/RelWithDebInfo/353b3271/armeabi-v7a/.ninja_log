@@ -1,0 +1,12 @@
+# ninja log v5
+14	5418	7780838119833827	GameActivity/CMakeFiles/game.dir/UGAInputKeyEvent.cpp.o	e670aeaaf9b6509d
+10	6027	7780838127399215	GameActivity/CMakeFiles/game.dir/UGAConfiguration.cpp.o	58d08ebac4388b00
+1	6039	7780838127399215	GameActivity/CMakeFiles/game.dir/UGADebug.cpp.o	c66ac202f69fb467
+21	6046	7780838127378857	GameActivity/CMakeFiles/game.dir/UGAEntry.cpp.o	fe28475227f08367
+18	6119	7780838128196509	GameActivity/CMakeFiles/game.dir/UGAInput.cpp.o	11f8cd44111dd016
+6039	6311	7780838130247122	FramePacing/CMakeFiles/swappywrapper.dir/UnitySwappyWrapper.cpp.o	d356e4cbeb50b7f
+5	6345	7780838130510921	GameActivity/CMakeFiles/game.dir/UGAApplication.cpp.o	44157da13977e4c
+6312	6456	7780838131772378	D:/Projects/Unity Projects/Reversed mine sweep design tool/Library/Bee/Android/Prj/Mono2x/Gradle/unityLibrary/build/intermediates/cxx/RelWithDebInfo/353b3271/obj/armeabi-v7a/libswappywrapper.so	e734aca5ba155b92
+5421	7343	7780838140540942	GameActivity/CMakeFiles/game.dir/UGAInputMotionEvent.cpp.o	b7d9bd87195e2da5
+6027	7468	7780838141945887	GameActivity/CMakeFiles/game.dir/UGASoftKeyboard.cpp.o	524cbd133e1db26c
+7468	7594	7780838143096640	D:/Projects/Unity Projects/Reversed mine sweep design tool/Library/Bee/Android/Prj/Mono2x/Gradle/unityLibrary/build/intermediates/cxx/RelWithDebInfo/353b3271/obj/armeabi-v7a/libgame.so	c4118d5b69045db5
