@@ -6,8 +6,10 @@ using UnityEngine;
 
 public class GridManager : MonoBehaviour
 {
+    [SerializeField] private int MaxAttempt = 50;
     private Ceil[,] _gridCeils;
     private int _width, _height;
+    private int _attempts;
     void Start()
     {
         EventBus.OnMapGenrated += InitGrid;
@@ -21,23 +23,58 @@ public class GridManager : MonoBehaviour
             PlaceBooms(Booms, target);
         };
     }
-
     private void PlaceBooms((int, int, int) BoomsConfig, int target)
     {
-        for (int _CornerBooms = 0; _CornerBooms < BoomsConfig.Item3; _CornerBooms++)
+        if (_attempts >= MaxAttempt)
         {
-            int x = _CornerBooms == 0 ? 0 : _CornerBooms == 1 ? _width - 1 : _CornerBooms == 2 ? 0 : _width - 1;
-            int y = _CornerBooms == 0 ? 0 : _CornerBooms == 1 ? 0 : _CornerBooms == 2 ? _height - 1 : _height - 1;
+            Debug.LogError("this problem may couse a stack overflow");
+            _attempts = 0;
+            return;
+        }
+        _attempts++;
+
+        PlaceCornerBooms(BoomsConfig);
+        PlaceOuterBooms(BoomsConfig);
+        PlaceInnerBooms(BoomsConfig);
+
+        if (CheckBrunch(target, out int m_currentScore))
+        {
+            EventBus.OnBoomsPlaced?.Invoke(target - m_currentScore, _gridCeils);
+            EventBus.OnBoardUpdate?.Invoke(_gridCeils);
+        }
+        else
+        {
+            InitGrid(_width, _height);
+            PlaceBooms(BoomsConfig, target);
+        }
+    }
+
+    private bool CheckBrunch(int target, out int _currentScore)
+    {
+        _currentScore = CalcTotalScore();
+        return _currentScore == target;
+    }
+
+    private void PlaceInnerBooms((int, int, int) BoomsConfig)
+    {
+        for (int _InnerBoom = 0; _InnerBoom < BoomsConfig.Item1; _InnerBoom++)
+        {
+            int x = UnityEngine.Random.Range(1, _width - 2);
+            int y = UnityEngine.Random.Range(1, _height - 2);
+
             if (_gridCeils[x, y].ceilHave != item.None)
             {
-                _CornerBooms--;
+                _InnerBoom--;
                 continue;
             }
 
             _gridCeils[x, y].ceilHave = item.boom;
             UpdateCielScores(x, y);
         }
+    }
 
+    private void PlaceOuterBooms((int, int, int) BoomsConfig)
+    {
         for (int _outerBooms = 0; _outerBooms < BoomsConfig.Item2; _outerBooms++)
         {
             int x = UnityEngine.Random.Range(0, _width);
@@ -65,32 +102,22 @@ public class GridManager : MonoBehaviour
                 UpdateCielScores(0, y);
             }
         }
+    }
 
-        for (int _InnerBoom = 0; _InnerBoom < BoomsConfig.Item1; _InnerBoom++)
+    private void PlaceCornerBooms((int, int, int) BoomsConfig)
+    {
+        (int x, int y)[] corners = { (0, 0), (_width - 1, 0), (0, _height - 1), (_width - 1, _height - 1) };
+        for (int _CornerBooms = 0; _CornerBooms < BoomsConfig.Item3; _CornerBooms++)
         {
-            int x = UnityEngine.Random.Range(1, _width - 2);
-            int y = UnityEngine.Random.Range(1, _height - 2);
-
+            var (x, y) = corners[_CornerBooms];
             if (_gridCeils[x, y].ceilHave != item.None)
             {
-                _InnerBoom--;
+                _CornerBooms--;
                 continue;
             }
 
             _gridCeils[x, y].ceilHave = item.boom;
             UpdateCielScores(x, y);
-        }
-
-        int m_currentScore = CalcTotalScore();
-        if (m_currentScore == target)
-        {
-            EventBus.OnBoomsPlaced?.Invoke(target - m_currentScore, _gridCeils);
-            EventBus.OnBoardUpdate?.Invoke(_gridCeils);
-        }
-        else
-        {
-            InitGrid(_width, _height);
-            PlaceBooms(BoomsConfig, target);
         }
     }
 
